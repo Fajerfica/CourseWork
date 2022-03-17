@@ -1,0 +1,83 @@
+{%extends 'main/layout.html'%}
+{%load static%}
+
+{% block static_dir %}
+    <link rel="stylesheet" href="{% static 'main/css/style_test.css' %}">
+
+{% endblock %}
+
+{%block content%}
+
+   <section class="choose">
+<!--       method="GET" action="{% url 'result'%}-->
+        <form class="container" method="POST" action="{% url 'result'%}">
+            {% csrf_token %}
+            <div class="choose_meth">
+                <div class="header h_r">Задачи</div>
+
+                <div class='list' style="display: flex; flex-direction: column">
+                    <div style='display: block; font-size: 20px; font-family: "Arial"; color: grey'>Выберите задачу</div>
+                        {{problems}}
+
+
+                </div>
+            </div>
+
+            <div class="choose_meth">
+                <div class="header">Алгоритмы</div>
+
+                <div class="list" style="display: flex; flex-direction: column">
+
+                    <div style='display: block; font-size: 20px; font-family: "Arial"; color: grey'>Выберите алгоритм</div>
+                       {{algos}}
+                </div>
+            </div>
+            <div class='btn'>
+                <input type="submit" value="Test">
+            </div>
+
+        </form>
+
+    </section>
+
+{%endblock%}
+
+<!--{% load static %}-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Testing</title>-->
+<!--    <link rel="stylesheet" href="{% static 'main/css/style_test.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+<!--    {% if user.is_authenticated %}-->
+<!--        <header>-->
+<!--        <nav class='menu'>-->
+<!--            <div class="left">-->
+<!--                <img src="{% static 'main/img/test_logos/logo.png' %}" alt="our logo">-->
+<!--                <form action="" method='get' class="menu_form">-->
+<!--                    <input type="text" class="search" placeholder="Поиск">-->
+<!--                </form>-->
+<!--                <button class="about_us">О нас</button>-->
+<!--            </div>-->
+
+<!--            <div class="right">-->
+<!--                <a href="{% url 'logout' %}" class="logout">Log out</a>-->
+<!--                <button class="nick">{{ user.username }}</button>-->
+<!--                <img src="{% static 'main/img/test_logos/user.png' %}" alt="user icon">-->
+<!--            </div>-->
+<!--        </nav>-->
+<!--    </header>-->
+
+
+<!--      {% else %}-->
+<!--        <p>You are not logged in.</p>-->
+<!--        <a href="{% url 'login' %}">Log In</a>-->
+<!--    {% endif %}-->
+
+<!--    {{ problems}}-->
+<!--</body>-->
+<!--</html>-->

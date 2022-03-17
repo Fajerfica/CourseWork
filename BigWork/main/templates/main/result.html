@@ -1,0 +1,32 @@
+{%extends 'main/layout.html'%}
+{%load static%}
+
+{% block static_dir %}
+    <link rel="stylesheet" href="{% static 'main/css/style_res.css' %}">
+{% endblock %}
+
+{%block content%}
+        <section class="result">
+        <div class="container">
+            <div class="labels">
+                <a href="" class="back"><img src="{% static 'main/img/res_logos/Back Arrow.png'%}" alt="back"></a>
+            <div class="header">Output</div>
+            <div class="header">Graphics</div>
+            </div>
+            <div class="content">
+                <div class="output formula">
+                    {{output}}
+                    {{output_1}}
+                </div>
+                <div class="output" >
+                    <div class="picture">{{ picture|safe }}</div>
+                </div>
+            </div>
+            <div class="buttons">
+                <a href="" class="btn" download>Download results</a>
+                <a href="{%url 'testing'%}" class="btn back">Back</a>
+            </div>
+        </div>
+
+    </section>
+{%endblock%}

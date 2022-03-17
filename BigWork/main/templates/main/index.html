@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <section class='main'>
+        <div class='container'>
+            <h1>Сервис тестирования алгоритмов приветствует тебя, чужестранец!</h1> 
+            <div class="form">
+                <form action="{% url 'login' %}">
+
+<!--                    <input type="text" name='Login' class='field' placeholder='Login'>-->
+
+
+<!--                    <input type="password" name='Password' class="field" placeholder='Password'>-->
+
+
+                    <input type="submit" name='Log-in' class='form_btn' value='Log-in'>
+                </form>
+                <form action="{% url 'signup'%}">
+                    <input type="submit" name='Registration' class='form_btn btn' value='Registration'>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
