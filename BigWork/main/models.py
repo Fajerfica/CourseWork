@@ -1,3 +1,7 @@
+import os.path
+import pathlib
+import subprocess
+
 from django.db import models
 import numpy as np
 from io import StringIO
@@ -44,6 +48,26 @@ class Output:
 
         if self.problem:
             res['problem'] = self.problem.name
+
+        algs_project_path = '/home/sd/prj/thesis/PyProgs/MethodsCompare'
+        algs_project_env_path = '/home/sd/anaconda3/envs/scientific/bin'
+
+        out = subprocess.check_output([os.path.join(algs_project_env_path, 'python'),
+                                       os.path.join(algs_project_path, "run_algs_command.py"),
+                                       "-a", ','.join(res['algos']), "-p", self.problem.name],
+                                      stderr=subprocess.STDOUT)
+
+        lines = out.decode('utf-8').split('\n')
+        results_path = lines[1]
+        contents = os.listdir(results_path)
+        for it in contents:
+            item_full_path = os.path.join(results_path, it)
+            if os.path.isfile(item_full_path):
+                if os.path.splitext(item_full_path)[1] == '.png':
+                    res['graph_path'] = item_full_path
+                elif os.path.splitext(item_full_path)[1] == '.txt':
+                    res['output'] = pathlib.Path(item_full_path).read_text('utf-8')
+
 
         return res
 

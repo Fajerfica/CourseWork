@@ -1,3 +1,4 @@
+from django.http import FileResponse
 from django.shortcuts import render
 from .models import Algos, Problems, Output
 
@@ -26,6 +27,14 @@ def result(request):
             output.output(problems_select, algos_select)
 
     site_output = output.get_output()
-    picture = output.return_graph()
+#    picture = output.return_graph()
     return render(request, 'main/result.html',
-                  {'picture': picture, 'output': site_output})
+                  {'graph_path': site_output['graph_path'], 'output': site_output})
+
+
+def graph(request):
+    file_id = request.GET['file']
+    img = open(file_id, 'rb')
+    response = FileResponse(img)
+
+    return response

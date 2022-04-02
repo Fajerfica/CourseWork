@@ -19,7 +19,8 @@
 }
 
 img {
-    height: 100px;
+    height: 100%;
+    width: 100%;
 }
 
 .menu .left .menu_form {
@@ -162,8 +163,8 @@ img {
 }
 
 .result .container .output .picture {
-    width: 200px;
-    height: 200px;
+    /*width: 200px;*/
+    /*height: 200px;*/
 }
 
 .result .container .formula {
