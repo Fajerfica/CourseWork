@@ -3,39 +3,49 @@ import numpy as np
 from io import StringIO
 import matplotlib.pyplot as plt
 
+
 class Algos(models.Model):
-    algos = models.CharField('Algorithms', max_length=250)
+    name = models.CharField('Algorithm', max_length=250)
 
     def __str__(self):
-        return self.algos
+        return self.name
 
     class Meta:
         verbose_name = 'Algorithm'
         verbose_name_plural = 'Algorithms'
 
+
 class Problems(models.Model):
-    problems = models.CharField('Problems', max_length=250)
+    name = models.CharField('Problem', max_length=250)
 
     def __str__(self):
-        return self.problems
+        return self.name
 
     class Meta:
         verbose_name = 'Problem'
         verbose_name_plural = 'Problems'
 
+
 class Output:
 
     def __init__(self):
-        self.problems = dict()
-        self.algos = dict()
+        self.problem = None
+        self.algos = None
 
-    def output(self, problems, algos):
-        self.problems = problems
+    def output(self, problem, algos):
+        self.problem = problem
         self.algos = algos
 
-
     def get_output(self):
-        return list(self.problems.keys()) + list(self.algos.keys())
+        res = {'problem': None, 'algos': []}
+        if self.algos:
+            for alg in self.algos:
+                res['algos'].append(alg.name)
+
+        if self.problem:
+            res['problem'] = self.problem.name
+
+        return res
 
     @staticmethod
     def return_graph():
@@ -54,4 +64,3 @@ class Output:
 
     def __str__(self):
         return self
-

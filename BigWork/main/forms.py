@@ -1,10 +1,10 @@
-from django.forms import ModelForm, ModelChoiceField, CharField
+from django.forms import ModelForm, ModelChoiceField, CharField, ModelMultipleChoiceField
 from .models import Algos, Problems
 
 class SelectAlgosForm(ModelForm):
-    algos = ModelChoiceField(queryset=Algos.objects.all(), required=True, label=False, empty_label='')
+    algos = ModelMultipleChoiceField(Algos.objects.all(), required=True, label=False)
 
-    algos.widget.attrs.update({'size': '3', 'empty_label': 'disabled'})
+    algos.widget.attrs.update({'size': '3'})
 
     class Meta:
         model = Algos
