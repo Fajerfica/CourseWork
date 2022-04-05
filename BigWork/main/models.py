@@ -61,7 +61,7 @@ class Output:
 
         lines = out.decode('utf-8').split('\n')
         print(lines)
-        results_path = lines[1]
+        results_path = lines[2]
         contents = os.listdir(results_path)
         for it in contents:
             item_full_path = os.path.join(results_path, it)
