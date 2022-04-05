@@ -60,6 +60,7 @@ class Output:
                                       stderr=subprocess.STDOUT)
 
         lines = out.decode('utf-8').split('\n')
+        print(lines)
         results_path = lines[1]
         contents = os.listdir(results_path)
         for it in contents:
