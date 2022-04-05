@@ -49,8 +49,10 @@ class Output:
         if self.problem:
             res['problem'] = self.problem.name
 
-        algs_project_path = '/home/sd/prj/thesis/PyProgs/MethodsCompare'
-        algs_project_env_path = '/home/sd/anaconda3/envs/scientific/bin'
+        # algs_project_path = '/home/sd/prj/thesis/PyProgs/MethodsCompare'
+        algs_project_path = '/home/ubuntu/algosuite/methodscompare'
+        # algs_project_env_path = '/home/sd/anaconda3/envs/scientific/bin'
+        algs_project_env_path = '/home/ubuntu/anaconda3/envs/scientific/bin'
 
         out = subprocess.check_output([os.path.join(algs_project_env_path, 'python'),
                                        os.path.join(algs_project_path, "run_algs_command.py"),
