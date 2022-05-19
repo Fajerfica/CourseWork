@@ -50,18 +50,18 @@ class Output:
             res['problem'] = self.problem.name
 
         # algs_project_path = '/home/sd/prj/thesis/PyProgs/MethodsCompare'
-        algs_project_path = '/home/ubuntu/algosuite/methodscompare'
+        algs_project_path = 'C:/PycharmProjects/methodscompare'
         # algs_project_env_path = '/home/sd/anaconda3/envs/scientific/bin'
-        algs_project_env_path = '/home/ubuntu/anaconda3/envs/scientific/bin'
+        algs_project_env_path = 'C:/PycharmProjects/methodscompare/venv/Scripts'
 
-        out = subprocess.check_output([os.path.join(algs_project_env_path, 'python'),
+        out = subprocess.check_output([os.path.join(algs_project_env_path, 'python.exe'),
                                        os.path.join(algs_project_path, "run_algs_command.py"),
                                        "-a", ','.join(res['algos']), "-p", self.problem.name],
                                       stderr=subprocess.STDOUT)
 
-        lines = out.decode('utf-8').split('\n')
+        lines = out.decode('utf-8')
         print(lines)
-        results_path = lines[2]
+        results_path = lines
         contents = os.listdir(results_path)
         for it in contents:
             item_full_path = os.path.join(results_path, it)

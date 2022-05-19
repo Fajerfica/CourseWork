@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!n!yu@k+9sd=(t+f9jzh94e3m=+cujwk=_m@1j6q88^7g1-l%1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vi-algos.local','vi-algos.gcloud']
+ALLOWED_HOSTS = ['vi-algos.local','vi-algos.gcloud', '127.0.0.1']
 
 
 # Application definition
