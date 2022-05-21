@@ -35,10 +35,12 @@ class Output:
     def __init__(self):
         self.problem = None
         self.algos = None
+        self.algos_params = None
 
-    def output(self, problem, algos):
-        self.problem = problem
-        self.algos = algos
+    # def output(self, problem, algos, algos_params=None):
+    #     self.problem = problem
+    #     self.algos = algos
+    #     self.algos_params = algos_params
 
     def get_output(self):
         res = {'problem': None, 'algos': []}
@@ -54,9 +56,13 @@ class Output:
         # algs_project_env_path = '/home/sd/anaconda3/envs/scientific/bin'
         algs_project_env_path = 'C:/PycharmProjects/methodscompare/venv/Scripts'
 
+        algos_params_string = ''
+        for key, value in self.algos_params.items():
+            algos_params_string += f'{key},{value};'
+        print(algos_params_string)
         out = subprocess.check_output([os.path.join(algs_project_env_path, 'python.exe'),
                                        os.path.join(algs_project_path, "run_algs_command.py"),
-                                       "-a", ','.join(res['algos']), "-p", self.problem.name],
+                                       "-a", ','.join(res['algos']), "-p", self.problem.name, "-k", algos_params_string],
                                       stderr=subprocess.STDOUT)
 
         lines = out.decode('utf-8')
