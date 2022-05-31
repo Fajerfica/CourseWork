@@ -1,4 +1,4 @@
-from django.forms import ModelForm, ModelChoiceField, CharField, ModelMultipleChoiceField, Form, FloatField
+from django.forms import ModelForm, ModelChoiceField, CharField, ModelMultipleChoiceField, Form, FloatField, IntegerField
 from .models import Algos, Problems
 
 class SelectAlgosForm(ModelForm):
@@ -18,9 +18,15 @@ class SelectProblemsForm(ModelForm):
         fields = ['problems']
 
 class SetAlgosParamsForm(Form):
-    # x0x = FloatField()
-    # x0y = FloatField()
-    eps = FloatField()
-    min_iters = FloatField()
-    max_iters = FloatField()
+    min_iters = IntegerField(min_value=1)
+    max_iters = IntegerField(min_value=1)
     lam = FloatField()
+    # x_axis_type = IntegerField(min_value=1, max_value=2)
+    # y_axis_type = IntegerField(min_value=1, max_value=4)
+
+    required_css_class = 'field'
+
+# class SetProblemForm(Form):
+#     min_iters = IntegerField(min_value=1)
+#     max_iters = IntegerField(min_value=1)
+#     lam = FloatField()

@@ -84,7 +84,7 @@ img {
     background-color: #0757D3;
     margin-left: 50px;
     color: white;
-     text-decoration: none;
+    text-decoration: none;
 
 }
 
@@ -109,87 +109,62 @@ img {
     color: #FDFDFD;
 }
 
-
-.result {
+.params {
     min-height: 84vh;
     background-image: url('../img/bg/main_bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    display: block;
 }
 
-.result .container {
+.params .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
-    flex-wrap: wrap;
+    margin: 0 auto;
+
+    color: #FDFDFD;
 }
 
-.result .container .labels, .result .container .content, .result .container .buttons {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.result .container .labels img {
-    height: 80px;
-    margin-right: 40px;
-}
-
-.result .container .labels .header {
-    height: 88px;
-    width: 480px;
-    background-color: #CBDAFF;
-    margin-right: 80px;
-
-    font-family: 'Courier new';
-    font-size: 30px;
-    line-height: 41px;
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.result .container .output {
-    width: 480px;
-    height: 380px;
-    background: #EEEEEE;
-    margin-right: 80px;
-}
-
-.result .container .output .picture {
-    width: 480px;
-    height: 380px;
-}
-
-.result .container .output .picture img {
-    width: 100%;
-    height: auto;
-}
-
-.result .container .formula {
-    margin-left: 120px;
-}
-
-.result .container .buttons .btn {
+.params .form .header {
     display: block;
-    margin-right: 301px;
-    height: 50px;
-    width: 235px;
-    background-color: #67B6FE;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #000000;
-    font-size: 20px;
+    margin: 50px auto;
+    color: #FDFDFD;
+    font-family: "Courier New";
 }
 
-.result .container .buttons .back {
-    margin-right: 0;
+.params .form form {
+    display: block;
+    margin: 0 auto;
+
+}
+
+.field {
+    font-family: "Courier New";
+    font-size: x-large;
+    margin-top: 25px;
+    margin-left: 35px;
+    border: 0;
+    color: #FDFDFD;
+    width: 500px;
+}
+
+input {
+    height: 35px;
+    /*margin-left: 100px;*/
+}
+
+
+.params .form form .form_btn {
+    display: block;
+    margin: 0 auto;
+    width: 162px;
+    height: 40px;
+    margin-top: 20px;
+    background: #67B6FE;
+    font-size: 20px;
+    border: 0;
+    color: #FDFDFD;
+    font-family: "Courier New";
 }

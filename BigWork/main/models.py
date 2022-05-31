@@ -73,9 +73,12 @@ class Output:
             item_full_path = os.path.join(results_path, it)
             if os.path.isfile(item_full_path):
                 if os.path.splitext(item_full_path)[1] == '.png':
+                    self.graph_path = item_full_path
                     res['graph_path'] = item_full_path
                 elif os.path.splitext(item_full_path)[1] == '.txt':
-                    res['output'] = pathlib.Path(item_full_path).read_text('utf-8')
+                    self.txt_path = item_full_path
+                    file = open(item_full_path, 'r')
+                    res['output'] = file.read()
 
 
         return res
@@ -97,3 +100,18 @@ class Output:
 
     def __str__(self):
         return self
+
+
+class HistoryRecord(models.Model):
+    username = models.CharField('User', max_length=250)
+    title = models.CharField('Title', max_length=250)
+
+    graph_path = models.CharField('Graph', max_length=250)
+    txt_path = models.CharField('TXT', max_length=250)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'History'
+        verbose_name_plural = 'Histories'

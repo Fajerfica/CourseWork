@@ -1,0 +1,24 @@
+{%extends 'main/layout.html'%}
+{%load static%}
+
+{% block static_dir %}
+    <link rel="stylesheet" href="{% static 'main/css/style_res.css' %}">
+{% endblock %}
+
+{%block content%}
+<div class="result">
+    {% for record in history %}
+        {% if user.username == record.username %}
+            <form action="outsavings" method="get" class="container">
+                <div class="buttons">
+                    <input type="hidden" value="{{ record.id }}" name="id">
+                    <input type="submit" value="{{ record }}" class="btn" style="width: 300px; height: 30px; border: 0; margin: 0 auto;">
+                </div>
+
+            </form>
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+{% endblock %}

@@ -1,16 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends 'main/layout.html'%}
+{%load static%}
 
-<form action="{% url 'result' %}", method="POST">
+{% block static_dir %}
+    <link rel="stylesheet" href="{% static 'main/css/style_params.css' %}">
+{% endblock %}
+
+{%block content%}
+    <div class="params">
+    <div class="form" >
+        <h2 class="header">Choose parameters for you task</h2>
+<form action="{% url 'result' %}" method="POST">
     {% csrf_token %}
-    {{ params.as_p }}
-    <input type="submit" value="Test">
-</form>
 
-</body>
-</html>
+    {{ params.as_p }}
+
+    <input type="submit" value="Test" class="form_btn">
+</form>
+        <div style="display: flex;flex-direction: row; margin-top: 15px">
+{#            <p style="font-family: 'Courier New'; display: block; flex-direction: row; margin-right: 15px">#}
+{#                X_axis_type: ITERATION = 1 <br>#}
+{#                TIME = 2#}
+{#            </p>#}
+{#            <p style="font-family: 'Courier New'; display: block; flex-direction: row">#}
+{#                Y_axis_type: REAL_ERROR = 1, <br>#}
+{#                GOAL_FUNCTION = 2,<br>#}
+{#                STEP_DELTA = 3,<br>#}
+{#                GOAL_OF_AVERAGED = 4#}
+{#            </p>#}
+        </div>
+
+    </div>
+
+
+    </div>
+{%endblock%}
+

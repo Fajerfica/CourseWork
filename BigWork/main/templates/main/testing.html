@@ -13,10 +13,10 @@
         <form class="container" method="POST" action="{% url 'params'%}">
             {% csrf_token %}
             <div class="choose_meth">
-                <div class="header h_r">Задачи</div>
+                <div class="header h_r">Problems</div>
 
                 <div class='list' style="display: flex; flex-direction: column">
-                    <div style='display: block; font-size: 20px; font-family: "Arial"; color: grey'>Выберите задачу</div>
+                    <div style='display: block; font-size: 20px; font-family: "Arial"; color: grey'>Choose problems</div>
                         {{problems}}
 
 
@@ -24,11 +24,11 @@
             </div>
 
             <div class="choose_meth">
-                <div class="header">Алгоритмы</div>
+                <div class="header">Algorithms</div>
 
                 <div class="list" style="display: flex; flex-direction: column">
 
-                    <div style='display: block; font-size: 20px; font-family: "Arial"; color: grey'>Выберите алгоритм</div>
+                    <div style='display: block; font-size: 20px; font-family: "Arial"; color: grey'>Choose algoritms</div>
                        {{algos}}
                 </div>
             </div>
